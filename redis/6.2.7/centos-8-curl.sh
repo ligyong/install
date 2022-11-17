@@ -34,6 +34,7 @@ sed -i 's/# cluster-config-file nodes-6379.conf/cluster-config-file nodes-6380.c
 sed -i 's/# cluster-node-timeout 15000/cluster-node-timeout 15000/g' /etc/redis/redis*
 sed -i 's/appendonly no/appendonly yes/g' /etc/redis/redis*
 sed -i 's/# requirepass foobared/requirepass Sobey123/g' /etc/redis/redis*
+sed -i 's/# masterauth <master-password>/masterauth Sobey123/g' /etc/redus/redis*
 
 mkdir -p /opt/redis-cluster/redis0{1,2}
 
