@@ -45,4 +45,4 @@ nohup redis-server /etc/redis/redis.conf &
 cd /opt/redis-cluster/redis02/
 nohup redis-server /etc/redis/redis-slave.conf &
 
-echo 'redis-cli --cluster create 172.16.148.15:6379 172.16.148.15:6380 172.16.148.17:6379 172.16.148.17:6380 172.16.148.18:6379 172.16.148.18:6380 --cluster-replicas 1 -a Sobey123'
+echo 'redis-cli --cluster create 172.16.148.15:6379 172.16.148.15:6380 172.16.148.17:6379 172.16.148.17:6380 172.16.148.18:6379 172.16.148.18:6380 --cluster-replicas 1 -a '${password}'
