@@ -21,6 +21,7 @@ cp redis.conf redis-slave.conf
 
 #bind地址
 bindStr=$1
+password=$2
 echo $bindStr
 sed -i 's/bind 127.0.0.1/bind '${bindStr}'/g' /etc/redis/redis*
 #port
@@ -33,8 +34,8 @@ sed -i 's/# cluster-config-file nodes-6379.conf/cluster-config-file nodes-6379.c
 sed -i 's/# cluster-config-file nodes-6379.conf/cluster-config-file nodes-6380.conf/g' /etc/redis/redis-slave.conf
 sed -i 's/# cluster-node-timeout 15000/cluster-node-timeout 15000/g' /etc/redis/redis*
 sed -i 's/appendonly no/appendonly yes/g' /etc/redis/redis*
-sed -i 's/# requirepass foobared/requirepass Sobey123/g' /etc/redis/redis*
-sed -i 's/# masterauth <master-password>/masterauth Sobey123/g' /etc/redus/redis*
+sed -i 's/# requirepass foobared/requirepass '${password}'/g' /etc/redis/redis*
+sed -i 's/# masterauth <master-password>/masterauth '${password}'/g' /etc/redus/redis*
 
 mkdir -p /opt/redis-cluster/redis0{1,2}
 
